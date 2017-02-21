@@ -35,6 +35,7 @@ var intentDialog = new builder.IntentDialog({recognizers: [luisRecognizer]});
 
 intentDialog.matches(/\b(hi|hello|hey|howdy)\b/i, '/sayHi')
             .matches('GetNews', '/topNews')
+            .matches('GetMart', '/mart')
             .matches('GetImage','/scanImage')
             .onDefault(builder.DialogAction.send("Sorry, I didn't understand what you said."));;
 
@@ -49,12 +50,17 @@ bot.dialog('/', intentDialog);
 //    session.send("Hello World");
 //});
 bot.dialog('/sayHi', function(session) {
-    session.send('Hi there!  Try saying things like "Get news in Toyko"');
+    session.send('Hi there!  Try saying things like "Get news in Toyko, Get Mart, Get Image"');
     session.endDialog();
 });
 
 bot.dialog('/scanImage', function(session) {
     session.send('Can you send me the URL of the Image Link?');
+    session.endDialog();
+});
+
+bot.dialog('/mart', function(session) {
+    session.send('Mart is awesome that is all you need to know');
     session.endDialog();
 });
 
