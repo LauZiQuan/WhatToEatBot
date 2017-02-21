@@ -52,7 +52,7 @@ bot.dialog('/sayHi', function(session) {
     session.endDialog();
 });
 
-bot.dialog('/topnews', [
+bot.dialog('/topNews', [
     function (session){
         // Ask the user which category they would like
         // Choices are separated by |
